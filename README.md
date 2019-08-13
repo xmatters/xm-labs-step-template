@@ -150,3 +150,6 @@ var hatPayload = {
 var resp = req.write( hatPayload );
 
 ```
+
+# Usage
+Details or tips here on how to use the step. Eg. create a new response called "such and such". Or a screen shot of the step(s) hooked into a flow. 
