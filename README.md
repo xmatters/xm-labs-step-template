@@ -1,5 +1,6 @@
-# xM Labs Step Template
-Template for contributing Flow Designer steps to the [Flow Steps](https://github.com/xmatters/xMatters-Labs-Flow-Steps) repo
+# Github Steps
+
+This step allows you to get the commit details from a given repo and user. Great for enriching notifications with relevant code commit information. 
 
 
 ---------
@@ -12,144 +13,50 @@ Template for contributing Flow Designer steps to the [Flow Steps](https://github
 
 # Files
 
-* [logo.png](/media/hat.png) - Logo for the Hat Factory
-* [otherfile.file](/otherfile.file) - Some other file that does something useful.
+* [GitHub-small.png](/GitHub-small.png) - GitHub logo
 
-# Application Name Goes Here
-One or two liner about the product here. 
-
-Each step for this "application" can be added below. I recommend exporting a comm plan with the steps so people can get to using them quickly.
-
-# `APPLICATION_NAME` setup
-Add details here about how to generate an auth token or to create a user. 
-
-## Get Token
-1. Login to `APPLICATION_NAME`. 
-2. Draw the rest of the Owl. 
-
-# Flow Designer Steps
-
-## Action Name 1
-The "Create App Record" step creates a record in the `APPLICATION_NAME` and such and such. 
-
-### Settings
-Values for the settings tab. A screen shot is also acceptable. If you have a custom icon, please upload it into the `/media` folder and reference with `<kbd> <img src="/media/hat.png"></kbd>`. See below for the format of a table in markdown. 
-
-| Field | Value |
-| ----- | ----- |
-| Name | Create a Hat |
-| Description | Sends a create a hat request to the hat factory.  |
-| Icon | <kbd> <img src="/media/hat.png"></kbd> |
-| Include Endpoint | Yes |
-| Endpoint Type | Basic Auth |
-| Endpoint Label | Hat Factory |
+# How it works
+The step pulls the commit information using the GitHub REST API GET `/repos/{Username}/{Repository}/commits/master`.
 
 
+# Installation
+
+## GitHub Setup
+None. This uses repos in GitHub.com which are public. If your GitHub requires authentication, some tweaking might be needed. 
+
+## xMatters Setup
+1. Download the GithubStep.zip file onto your local computer
+2. Navigate to the Developer tab of your xMatters instance
+3. Click Import, and select the zip file you just downloaded
+
+
+## Usage
+The *GitHub - Get last commit* step is now available in your custom steps. So navigate to the appropriate canvas so you can add the step there. If you'd like to experiment with it, the **GitHub Steps** workflow has a canvas that can be triggered via HTTP call. 
 
 ### Inputs
-Inputs should be in the form of tables. The syntax looks like this in the markdown. The "content cells" do not have to line up, just make sure you have the right number of columns in each row. Required inputs must be at the top and please for the love of Pete, add some helpful text as to what the input is for or what it does. If the step only allows certain values, make sure to list them!
-
-```
 | Name  | Required? | Min | Max | Help Text | Default Value | Multiline |
 | ----- | ----------| --- | --- | --------- | ------------- | --------- |
-| Name  | Yes | 0 | 2000 | This is the color of the hat to create | Blue | No |
-| Color | No | 0 | 2000 | The major color of the hat. Possible values are Red, White, Blue | Blue | No |
-```
-
-| Name  | Required? | Min | Max | Help Text | Default Value | Multiline |
-| ----- | ----------| --- | --- | --------- | ------------- | --------- |
-| Name  | Yes | 0 | 2000 | This is the color of the hat to create | Blue | No |
-| Color | No | 0 | 2000 | The major color of the hat. Possible values are Red, White, Blue | Blue | No |
+| Username  | Yes | 0 | 2000 | The username or organization the repository lives under | | No |
+| Repository | Yes | 0 | 2000 | The name of the repository | | No |
 
 
 ### Outputs
 
-| Name |
-| ---- |
-| Hat |
-| Link |
-
-### Script
-
-```javascript
-// Retrieve the name and color values
-var name = input['Name'];
-var color = input['Color'];
-
-// Make the request
-var req = http.request({
-   "endpoint": "Hat Factory",
-   "path": "/hat",
-   "method": "POST",
-   "headers": {
-      "Content-Type": "application/json"
-   }
-});
-
-var hatPayload = {
-   "name": name,
-   "color": color
-};
-
-var resp = req.write( hatPayload );
-
-```
+| Name | Description |
+| ---- | ----------  |
+| URL | URL of the repository |
+| SHA | The SHA hash of the commit |
+| Author_Name | Full name of the author. |
+| Author_Email | Email address of the author. | 
+| Timestamp | Timestamp of the commit. |
+| Message | Commit message |
 
 
-## Action Name 2
-The "Update App Record" step creates a record in the `APPLICATION_NAME` and such and such. 
 
-### Settings
+## Example
+This is an example showing the GitHub and Jenkins steps enriching the event before it is fired off to people. 
 
-| Field | Value |
-| ----- | ----- |
-| Name | Update a Hat |
-| Description | Sends an update a hat request to the hat factory.  |
-| Icon | <kbd> <img src="/media/hat.png"></kbd> |
-| Include Endpoint | Yes |
-| Endpoint Type | Basic Auth |
-| Endpoint Label | Hat Factory |
+<kbd>
+	<img src="/media/ExampleFlow.png">
+</kbd>
 
-### Inputs
-
-| Name  | Required? | Min | Max | Help Text | Default Value | Multiline |
-| ----- | ----------| --- | --- | --------- | ------------- | --------- |
-| Name  | Yes | 0 | 2000 | This is the color of the hat to create | Blue | No |
-| Color | No | 0 | 2000 | The major color of the hat. Possible values are Red, White, Blue | Blue | No |
-
-
-### Outputs
-
-| Name |
-| ---- |
-| Hat |
-| Link |
-
-### Script
-
-```javascript
-// Retrieve the name and color values
-var name = input['Name'];
-var color = input['Color'];
-
-// Make the request
-var req = http.request({
-   "endpoint": "Hat Factory",
-   "path": "/hat",
-   "method": "POST",
-   "headers": {
-      "Content-Type": "application/json"
-   }
-});
-
-var hatPayload = {
-   "name": name,
-   "color": color
-};
-
-var resp = req.write( hatPayload );
-
-```
-
-# Usage
-Details or tips here on how to use the step. Eg. create a new response called "such and such". Or a screen shot of the step(s) hooked into a flow. 
