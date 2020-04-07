@@ -1,6 +1,7 @@
 # xM Labs Step Template
 Template for contributing Flow Designer steps to the [Flow Steps](https://github.com/xmatters/xMatters-Labs-Flow-Steps) repo
 
+Note: It's recommended to add the step(s) to a blank canvas and then export the workflow so people don't have to create the steps from scratch. 
 
 ---------
 
@@ -13,6 +14,7 @@ Template for contributing Flow Designer steps to the [Flow Steps](https://github
 # Files
 
 * [logo.png](/media/hat.png) - Logo for the Hat Factory
+* [cool_workflow.zip](cool_workflow.zip) - Exported workflow with the steps dropped onto an empty canvas
 * [otherfile.file](/otherfile.file) - Some other file that does something useful.
 
 # Application Name Goes Here
@@ -28,6 +30,8 @@ Add details here about how to generate an auth token or to create a user.
 2. Draw the rest of the Owl. 
 
 # Flow Designer Steps
+
+First, import the [cool_workflow.zip](cool_workflow.zip) to have each step imported. If you would like to configure the steps manually or would like more information on what the inputs and outputs do, read on. 
 
 ## Action Name 1
 The "Create App Record" step creates a record in the `APPLICATION_NAME` and such and such. 
