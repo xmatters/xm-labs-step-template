@@ -6,7 +6,9 @@ Note: It's recommended to add the step(s) to a blank canvas and then export the 
 ---------
 
 <kbd>
-  <img src="https://github.com/xmatters/xMatters-Labs/raw/master/media/disclaimer.png">
+<a href="https://support.xmatters.com/hc/en-us/community/topics">
+   <img src="https://github.com/xmatters/xMatters-Labs/raw/master/media/disclaimer.png">
+</a>
 </kbd>
 
 ---------
@@ -20,7 +22,7 @@ Note: It's recommended to add the step(s) to a blank canvas and then export the 
 # Application Name Goes Here
 One or two liner about the product here. 
 
-Each step for this "application" can be added below. I recommend exporting a comm plan with the steps so people can get to using them quickly.
+Each step for this "application" can be added below. I recommend exporting a workflow with the steps so people can get to using them quickly.
 
 # `APPLICATION_NAME` setup
 Add details here about how to generate an auth token or to create a user. 
